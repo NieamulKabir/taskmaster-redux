@@ -34,6 +34,11 @@ const userSlice = createSlice({
     },
     toggleLoading:(state, {payload}) => {
       state.isLoading = payload;
+    },
+    logout:(state)=>{
+      state.name="";
+      state.email=""
+
     }
   },
   extraReducers: (builder) => {
@@ -48,8 +53,8 @@ const userSlice = createSlice({
       .addCase(createUser.fulfilled, (state, { payload }) => {
         state.isLoading = false;
         state.isError = false;
-        state.email = payload.user.email;
-        state.name = payload.user.name;
+        state.email = payload.email;
+        state.name = payload.name;
         state.error = "";
       })
       .addCase(createUser.rejected, (state, { error }) => {
@@ -62,5 +67,5 @@ const userSlice = createSlice({
   },
 });
 
-export const {setUser,toggleLoading}=userSlice.actions
+export const {setUser,toggleLoading,logout}=userSlice.actions
 export default userSlice.reducer;
