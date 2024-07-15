@@ -29,13 +29,13 @@ const MyTasks = () => {
       <div className=" h-[750px] overflow-auto space-y-3">
         {userSpecificTasks?.map((item) => (
           <div
-            key={item.id}
+            key={item._id}
             className="bg-secondary/10 rounded-md p-3 flex justify-between"
           >
             <h1>{item.title}</h1>
             <div className="flex gap-3">
               <button
-                onClick={() => handleModal(item.id)}
+                onClick={() => handleModal(item._id)}
                 className="grid place-content-center"
                 title="Details"
               >
@@ -43,7 +43,7 @@ const MyTasks = () => {
               </button>
               <button
                 onClick={() =>
-                  dispatch(updateStatus({ id: item.id, status: "done" }))
+                  dispatch(updateStatus({ id: item._id, status: "done" }))
                 }
                 className="grid place-content-center"
                 title="Done"

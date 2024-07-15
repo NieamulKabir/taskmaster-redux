@@ -26,17 +26,17 @@ const tasksSlice = createSlice({
       } else {
         const lastElement = state.tasks.at(-1);
         state.tasks.push({
-          id: lastElement.id + 1,
+          id: lastElement._id + 1,
           status: "pending",
           ...payload,
         });
       }
     },
     removeTask: (state, { payload }) => {
-      state.tasks = state.tasks.filter((item) => item.id !== payload);
+      state.tasks = state.tasks.filter((item) => item._id !== payload);
     },
     updateStatus: (state, { payload }) => {
-      const target = state.tasks.find((item) => item.id === payload.id);
+      const target = state.tasks.find((item) => item._id === payload._id);
       target.status = payload.status;
     },
     userTasks: (state, { payload }) => {
@@ -47,5 +47,6 @@ const tasksSlice = createSlice({
   },
 });
 
-export const { addTask, removeTask, updateStatus ,userTasks} = tasksSlice.actions;
+export const { addTask, removeTask, updateStatus, userTasks } =
+  tasksSlice.actions;
 export default tasksSlice.reducer;

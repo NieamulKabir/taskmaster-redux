@@ -3,7 +3,7 @@ import Modal from "../ui/Modal";
 
 const TaskDetailsModal = ({ isOpen, setIsOpen, id }) => {
   const { tasks } = useSelector((state) => state.tasks);
-  const task = tasks.find((item) => item.id === id);
+  const task = tasks.find((item) => item._id === id);
   return (
     <Modal isOpen={isOpen} setIsOpen={setIsOpen}>
       <h1>{task?.title}</h1>
@@ -13,4 +13,3 @@ const TaskDetailsModal = ({ isOpen, setIsOpen, id }) => {
 };
 
 export default TaskDetailsModal;
-  
