@@ -4,7 +4,8 @@ import {
   removeTask,
   updateStatus,
 } from "../../redux/features/tasks/tasksSlice";
-import { useUpdateTaskMutation } from "../../redux/features/api/baseApi";
+import { useUpdateTaskMutation } from "../../redux/features/tasks/tasksApi";
+
 
 const TaskCard = ({ task }) => {
   const [updateTask, { data, isLoading, isError, error }] =
